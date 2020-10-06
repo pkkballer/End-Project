@@ -1,0 +1,12 @@
+<svg width="175" height="30" xmlns="http://www.w3.org/2000/svg">
+
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="32" width="177" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_4" y="22.953125" x="17" stroke-opacity="null" stroke-width="0" stroke="null" fill="#000000">HelpFor</text>
+  <text font-weight="bold" xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_5" y="22.953125" x="109" stroke-opacity="null" stroke-width="0" stroke="null" fill="#cc0000">Dog</text>
+ </g>
+</svg>
