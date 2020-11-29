@@ -8,7 +8,11 @@ export default [
     text: "บริจาคเลือด",
   },
   {
-    path: "/news",
+    path: "/blog",
+    text: "ข่าวสาร",
+  },
+  {
+    path: "/blogs",
     text: "ข่าวสาร",
   },
   {

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import BackgroundImage from "gatsby-background-image"
+
 import { useStaticQuery, graphql } from "gatsby"
 
 const getImage = graphql`
@@ -17,6 +18,7 @@ const getImage = graphql`
 
 const StyledHero = ({ img, className, children, home }) => {
   const data = useStaticQuery(getImage)
+
   return (
     <BackgroundImage
       className={className}

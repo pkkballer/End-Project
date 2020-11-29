@@ -81,3 +81,6 @@ main {
   display: flex;
   flex-direction: column;
 }
+.rich {
+  background: var(--primaryColor);
+} 

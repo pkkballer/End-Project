@@ -22,7 +22,6 @@ const Donation = ({ donation }) => {
   const data = useStaticQuery(getImage)
   const img =data.file.childImageSharp.fluid
   const { name, price, country, days, slug, images } = donation
-  console.log(data)
 
   let mainImage = images ? images[0].fluid : img
 
