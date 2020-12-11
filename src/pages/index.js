@@ -7,10 +7,12 @@ import StyledHero from "../components/StyledHero"
 import { graphql } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
 import FeaturedDonations from "../components/Home/FeaturedDonations"
+import SEO from '../components/SEO'
 
 export default ({ data }) => (
   <Layout>
-    <StyledHero home="true">
+    <SEO title="หน้าแรก"/>
+    <StyledHero home="true" img={data.defaultBcg.childImageSharp.fluid}>
       <Banner
         title="continue exploring"
         info=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, officiis."

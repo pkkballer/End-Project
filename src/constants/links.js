@@ -9,7 +9,7 @@ export default [
   },
   {
     path: "/blog",
-    text: "ข่าวสาร",
+    text: "ข่าว",
   },
   {
     path: "/blogs",

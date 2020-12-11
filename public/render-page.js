@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"), require("C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"), require("react"), require("react-dom/server"));
+		module.exports = factory(require("C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"), require("C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"), require("react"), require("react-dom/server"), require("react-helmet"));
 	else if(typeof define === 'function' && define.amd)
-		define("lib", ["C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js", "C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js", "react", "react-dom/server"], factory);
+		define("lib", ["C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js", "C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js", "react", "react-dom/server", "react-helmet"], factory);
 	else if(typeof exports === 'object')
-		exports["lib"] = factory(require("C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"), require("C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"), require("react"), require("react-dom/server"));
+		exports["lib"] = factory(require("C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"), require("C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"), require("react"), require("react-dom/server"), require("react-helmet"));
 	else
-		root["lib"] = factory(root["C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"], root["C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"], root["react"], root["react-dom/server"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE__reach_router__, __WEBPACK_EXTERNAL_MODULE_lodash_merge__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__) {
+		root["lib"] = factory(root["C:\\Users\\61515\\Helpfordog\\node_modules\\@reach\\router\\index.js"], root["C:\\Users\\61515\\Helpfordog\\node_modules\\lodash\\merge.js"], root["react"], root["react-dom/server"], root["react-helmet"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE__reach_router__, __WEBPACK_EXTERNAL_MODULE_lodash_merge__, __WEBPACK_EXTERNAL_MODULE_react__, __WEBPACK_EXTERNAL_MODULE_react_dom_server__, __WEBPACK_EXTERNAL_MODULE_react_helmet__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -96,17 +96,6 @@ return /******/ (function(modules) { // webpackBootstrap
 /************************************************************************/
 /******/ ({
 
-/***/ "./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires":
-/*!*****************************************************************************!*\
-  !*** ./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires ***!
-  \*****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./.cache/api-runner-ssr.js":
 /*!**********************************!*\
   !*** ./.cache/api-runner-ssr.js ***!
@@ -115,6 +104,11 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ (function(module, exports, __webpack_require__) {
 
 var plugins = [{
+  plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr */ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js"),
+  options: {
+    "plugins": []
+  }
+}, {
   plugin: __webpack_require__(/*! ./node_modules/gatsby-plugin-styled-components/gatsby-ssr */ "./node_modules/gatsby-plugin-styled-components/gatsby-ssr.js"),
   options: {
     "plugins": [],
@@ -199,6 +193,7 @@ module.exports = function (api, args, defaultReturn, argTransform) {
  * rendering.
  * @param {object} $0
  * @param {string} $0.pathname The pathname of the page currently being rendered.
+ * @param {ReactNode} $0.bodyComponent The React element to be rendered as the page body
  * @param {function} $0.replaceBodyHTMLString Call this with the HTML string
  * you render. **WARNING** if multiple plugins implement this API it's the
  * last plugin that "wins". TODO implement an automated warning against this.
@@ -604,64 +599,6 @@ var emitter = Object(mitt__WEBPACK_IMPORTED_MODULE_0__["default"])();
 
 /***/ }),
 
-/***/ "./.cache/ensure-page-component-in-bundle.js":
-/*!***************************************************!*\
-  !*** ./.cache/ensure-page-component-in-bundle.js ***!
-  \***************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var didCallServer = new Set();
-
-var ensureComponentInBundle = function ensureComponentInBundle(chunkName) {
-  return new Promise(function (resolve, reject) {
-    if (!didCallServer.has(chunkName)) {
-      var req = new XMLHttpRequest();
-      req.open("post", "/___client-page-visited", true);
-      req.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-      req.send(JSON.stringify({
-        chunkName: chunkName
-      }));
-      didCallServer.add(chunkName);
-    } // Tell the server the user wants to visit this page
-    // to trigger it compiling the page component's code.
-    //
-    // Try for 10 seconds and then error.
-
-
-    var checkCount = 0;
-
-    var checkForBundle = function checkForBundle() {
-      checkCount += 1;
-
-      if (checkCount > 99) {
-        reject("Loading the page component " + chunkName + " timed out after 5 seconds");
-      } // Check if the bundle is included and return.
-
-
-      if (true) {
-        delete __webpack_require__.c[/*require.resolve*/(/*! $virtual/lazy-client-sync-requires */ "./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires")];
-      }
-
-      var lazyRequires = __webpack_require__(/*! $virtual/lazy-client-sync-requires */ "./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires");
-
-      if (lazyRequires.lazyComponents[chunkName]) {
-        resolve(lazyRequires.lazyComponents[chunkName]);
-      } else {
-        setTimeout(checkForBundle, 100);
-      }
-    };
-
-    checkForBundle();
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (ensureComponentInBundle);
-
-/***/ }),
-
 /***/ "./.cache/find-path.js":
 /*!*****************************!*\
   !*** ./.cache/find-path.js ***!
@@ -873,15 +810,7 @@ function StaticQueryDataRenderer(_ref) {
       data = _ref.data,
       query = _ref.query,
       render = _ref.render;
-  var combinedStaticQueryData = staticQueryData;
-
-  if (({}).GATSBY_EXPERIMENTAL_LAZY_DEVJS) {
-    // when we remove the flag, we don't need to combine them
-    // w/ changes @pieh made.
-    combinedStaticQueryData = Object.assign({}, Object(_loader__WEBPACK_IMPORTED_MODULE_5__["getStaticQueryResults"])(), staticQueryData);
-  }
-
-  var finalData = data ? data.data : combinedStaticQueryData[query] && combinedStaticQueryData[query].data;
+  var finalData = data ? data.data : staticQueryData[query] && staticQueryData[query].data;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, null, finalData && render(finalData), !finalData && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "Loading (StaticQuery)"));
 }
 
@@ -901,6 +830,8 @@ var StaticQuery = function StaticQuery(props) {
 };
 
 var useStaticQuery = function useStaticQuery(query) {
+  var _context$query;
+
   if (typeof react__WEBPACK_IMPORTED_MODULE_0___default.a.useContext !== "function" && "development" === "development") {
     throw new Error("You're likely using a version of React that doesn't support Hooks\n" + "Please update React and ReactDOM to 16.8.0 or later to use the useStaticQuery hook.");
   }
@@ -913,36 +844,11 @@ var useStaticQuery = function useStaticQuery(query) {
     throw new Error("useStaticQuery was called with a string but expects to be called using `graphql`. Try this:\n\nimport { useStaticQuery, graphql } from 'gatsby';\n\nuseStaticQuery(graphql`" + query + "`);\n");
   }
 
-  var queryNotFound = false;
-
-  if (({}).GATSBY_EXPERIMENTAL_LAZY_DEVJS) {
-    var _staticQueryData$quer;
-
-    // Merge data loaded via socket.io & xhr
-    // when we remove the flag, we don't need to combine them
-    // w/ changes @pieh made.
-    var staticQueryData = Object.assign({}, Object(_loader__WEBPACK_IMPORTED_MODULE_5__["getStaticQueryResults"])(), context);
-
-    if ((_staticQueryData$quer = staticQueryData[query]) === null || _staticQueryData$quer === void 0 ? void 0 : _staticQueryData$quer.data) {
-      return staticQueryData[query].data;
-    } else {
-      queryNotFound = true;
-    }
+  if ((_context$query = context[query]) === null || _context$query === void 0 ? void 0 : _context$query.data) {
+    return context[query].data;
   } else {
-    var _context$query;
-
-    if ((_context$query = context[query]) === null || _context$query === void 0 ? void 0 : _context$query.data) {
-      return context[query].data;
-    } else {
-      queryNotFound = true;
-    }
-  }
-
-  if (queryNotFound) {
     throw new Error("The result of this StaticQuery could not be fetched.\n\n" + "This is likely a bug in Gatsby and if refreshing the page does not fix it, " + "please open an issue in https://github.com/gatsbyjs/gatsby/issues");
   }
-
-  return null;
 };
 
 StaticQuery.propTypes = {
@@ -1144,29 +1050,6 @@ var BaseLoader = /*#__PURE__*/function () {
 
           if (jsonPayload.path === undefined) {
             throw new Error("not a valid pageData response");
-          } // In development, check if the page is in the bundle yet.
-
-
-          if ( true && ({}).GATSBY_EXPERIMENTAL_LAZY_DEVJS) {
-            var ensureComponentInBundle = __webpack_require__(/*! ./ensure-page-component-in-bundle */ "./.cache/ensure-page-component-in-bundle.js").default;
-
-            if (true) {
-              delete __webpack_require__.c[/*require.resolve*/(/*! $virtual/lazy-client-sync-requires */ "./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires")];
-            }
-
-            var lazyRequires = __webpack_require__(/*! $virtual/lazy-client-sync-requires */ "./.cache/_this_is_virtual_fs_path_/$virtual/lazy-client-sync-requires");
-
-            if (lazyRequires.notVisitedPageComponents[jsonPayload.componentChunkName]) {
-              // Tell the server the user wants to visit this page
-              // to trigger it including the page component's code in the
-              // commons bundles.
-              ensureComponentInBundle(jsonPayload.componentChunkName);
-              return new Promise(function (resolve) {
-                return setTimeout(function () {
-                  return resolve(_this2.fetchPageDataJson(loadObj));
-                }, 100);
-              });
-            }
           }
 
           return Object.assign(loadObj, {
@@ -2927,11 +2810,11 @@ exports.navigateTo = exports.replace = exports.push = exports.navigate = exports
 
 var _objectWithoutPropertiesLoose2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/objectWithoutPropertiesLoose */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/objectWithoutPropertiesLoose.js"));
 
-var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/extends.js"));
-
 var _assertThisInitialized2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/assertThisInitialized */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/assertThisInitialized.js"));
 
 var _inheritsLoose2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/inheritsLoose */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/inheritsLoose.js"));
+
+var _extends2 = _interopRequireDefault(__webpack_require__(/*! @babel/runtime/helpers/extends */ "./node_modules/gatsby/node_modules/@babel/runtime/helpers/extends.js"));
 
 var _propTypes = _interopRequireDefault(__webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js"));
 
@@ -3035,6 +2918,15 @@ var createIntersectionObserver = function createIntersectionObserver(el, cb) {
   };
 };
 
+function GatsbyLinkLocationWrapper(props) {
+  return /*#__PURE__*/_react.default.createElement(_router.Location, null, function (_ref2) {
+    var location = _ref2.location;
+    return /*#__PURE__*/_react.default.createElement(GatsbyLink, (0, _extends2.default)({}, props, {
+      _location: location
+    }));
+  });
+}
+
 var GatsbyLink = /*#__PURE__*/function (_React$Component) {
   (0, _inheritsLoose2.default)(GatsbyLink, _React$Component);
 
@@ -3043,9 +2935,9 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
 
     _this = _React$Component.call(this, props) || this; // Default to no support for IntersectionObserver
 
-    _this.defaultGetProps = function (_ref2) {
-      var isPartiallyCurrent = _ref2.isPartiallyCurrent,
-          isCurrent = _ref2.isCurrent;
+    _this.defaultGetProps = function (_ref3) {
+      var isPartiallyCurrent = _ref3.isPartiallyCurrent,
+          isCurrent = _ref3.isCurrent;
 
       if (_this.props.partiallyActive ? isPartiallyCurrent : isCurrent) {
         return {
@@ -3072,17 +2964,33 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
 
   var _proto = GatsbyLink.prototype;
 
+  _proto._prefetch = function _prefetch() {
+    var currentPath = window.location.pathname; // reach router should have the correct state
+
+    if (this.props._location && this.props._location.pathname) {
+      currentPath = this.props._location.pathname;
+    }
+
+    var rewrittenPath = rewriteLinkPath(this.props.to, currentPath);
+    var newPathName = (0, _parsePath.parsePath)(rewrittenPath).pathname; // Prefech is used to speed up next navigations. When you use it on the current navigation,
+    // there could be a race-condition where Chrome uses the stale data instead of waiting for the network to complete
+
+    if (currentPath !== newPathName) {
+      ___loader.enqueue(newPathName);
+    }
+  };
+
   _proto.componentDidUpdate = function componentDidUpdate(prevProps, prevState) {
     // Preserve non IO functionality if no support
     if (this.props.to !== prevProps.to && !this.state.IOSupported) {
-      ___loader.enqueue((0, _parsePath.parsePath)(rewriteLinkPath(this.props.to, window.location.pathname)).pathname);
+      this._prefetch();
     }
   };
 
   _proto.componentDidMount = function componentDidMount() {
     // Preserve non IO functionality if no support
     if (!this.state.IOSupported) {
-      ___loader.enqueue((0, _parsePath.parsePath)(rewriteLinkPath(this.props.to, window.location.pathname)).pathname);
+      this._prefetch();
     }
   };
 
@@ -3110,7 +3018,7 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
     if (this.state.IOSupported && ref) {
       // If IO supported and element reference found, setup Observer functionality
       this.io = createIntersectionObserver(ref, function () {
-        ___loader.enqueue((0, _parsePath.parsePath)(rewriteLinkPath(_this2.props.to, window.location.pathname)).pathname);
+        _this2._prefetch();
       });
     }
   };
@@ -3130,59 +3038,63 @@ var GatsbyLink = /*#__PURE__*/function (_React$Component) {
         partiallyActive = _this$props.partiallyActive,
         state = _this$props.state,
         replace = _this$props.replace,
-        rest = (0, _objectWithoutPropertiesLoose2.default)(_this$props, ["to", "getProps", "onClick", "onMouseEnter", "activeClassName", "activeStyle", "innerRef", "partiallyActive", "state", "replace"]);
+        _location = _this$props._location,
+        rest = (0, _objectWithoutPropertiesLoose2.default)(_this$props, ["to", "getProps", "onClick", "onMouseEnter", "activeClassName", "activeStyle", "innerRef", "partiallyActive", "state", "replace", "_location"]);
 
     if ( true && !isLocalLink(to)) {
       console.warn("External link " + to + " was detected in a Link component. Use the Link component only for internal links. See: https://gatsby.dev/internal-links");
     }
 
-    return /*#__PURE__*/_react.default.createElement(_router.Location, null, function (_ref3) {
-      var location = _ref3.location;
-      var prefixedTo = rewriteLinkPath(to, location.pathname);
-      return isLocalLink(prefixedTo) ? /*#__PURE__*/_react.default.createElement(_router.Link, (0, _extends2.default)({
-        to: prefixedTo,
-        state: state,
-        getProps: getProps,
-        innerRef: _this3.handleRef,
-        onMouseEnter: function onMouseEnter(e) {
-          if (_onMouseEnter) {
-            _onMouseEnter(e);
-          }
+    var prefixedTo = rewriteLinkPath(to, _location.pathname);
 
-          ___loader.hovering((0, _parsePath.parsePath)(prefixedTo).pathname);
-        },
-        onClick: function onClick(e) {
-          if (_onClick) {
-            _onClick(e);
-          }
-
-          if (e.button === 0 && // ignore right clicks
-          !_this3.props.target && // let browser handle "target=_blank"
-          !e.defaultPrevented && // onClick prevented default
-          !e.metaKey && // ignore clicks with modifier keys...
-          !e.altKey && !e.ctrlKey && !e.shiftKey) {
-            e.preventDefault();
-            var shouldReplace = replace;
-            var isCurrent = encodeURI(prefixedTo) === window.location.pathname;
-
-            if (typeof replace !== "boolean" && isCurrent) {
-              shouldReplace = true;
-            } // Make sure the necessary scripts and data are
-            // loaded before continuing.
-
-
-            window.___navigate(prefixedTo, {
-              state: state,
-              replace: shouldReplace
-            });
-          }
-
-          return true;
-        }
-      }, rest)) : /*#__PURE__*/_react.default.createElement("a", (0, _extends2.default)({
+    if (!isLocalLink(prefixedTo)) {
+      return /*#__PURE__*/_react.default.createElement("a", (0, _extends2.default)({
         href: prefixedTo
       }, rest));
-    });
+    }
+
+    return /*#__PURE__*/_react.default.createElement(_router.Link, (0, _extends2.default)({
+      to: prefixedTo,
+      state: state,
+      getProps: getProps,
+      innerRef: this.handleRef,
+      onMouseEnter: function onMouseEnter(e) {
+        if (_onMouseEnter) {
+          _onMouseEnter(e);
+        }
+
+        ___loader.hovering((0, _parsePath.parsePath)(prefixedTo).pathname);
+      },
+      onClick: function onClick(e) {
+        if (_onClick) {
+          _onClick(e);
+        }
+
+        if (e.button === 0 && // ignore right clicks
+        !_this3.props.target && // let browser handle "target=_blank"
+        !e.defaultPrevented && // onClick prevented default
+        !e.metaKey && // ignore clicks with modifier keys...
+        !e.altKey && !e.ctrlKey && !e.shiftKey) {
+          e.preventDefault();
+          var shouldReplace = replace;
+
+          var isCurrent = encodeURI(prefixedTo) === _location.pathname;
+
+          if (typeof replace !== "boolean" && isCurrent) {
+            shouldReplace = true;
+          } // Make sure the necessary scripts and data are
+          // loaded before continuing.
+
+
+          window.___navigate(prefixedTo, {
+            state: state,
+            replace: shouldReplace
+          });
+        }
+
+        return true;
+      }
+    }, rest));
   };
 
   return GatsbyLink;
@@ -3200,7 +3112,7 @@ var showDeprecationWarning = function showDeprecationWarning(functionName, altFu
 };
 
 var _default = /*#__PURE__*/_react.default.forwardRef(function (props, ref) {
-  return /*#__PURE__*/_react.default.createElement(GatsbyLink, (0, _extends2.default)({
+  return /*#__PURE__*/_react.default.createElement(GatsbyLinkLocationWrapper, (0, _extends2.default)({
     innerRef: ref
   }, props));
 });
@@ -3276,6 +3188,44 @@ function parsePath(path) {
     hash: hash === "#" ? "" : hash
   };
 }
+
+/***/ }),
+
+/***/ "./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js":
+/*!***************************************************************!*\
+  !*** ./node_modules/gatsby-plugin-react-helmet/gatsby-ssr.js ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.onRenderBody = void 0;
+
+var _reactHelmet = __webpack_require__(/*! react-helmet */ "react-helmet");
+
+var onRenderBody = function onRenderBody(_ref) {
+  var setHeadComponents = _ref.setHeadComponents,
+      setHtmlAttributes = _ref.setHtmlAttributes,
+      setBodyAttributes = _ref.setBodyAttributes;
+
+  var helmet = _reactHelmet.Helmet.renderStatic(); // These action functions were added partway through the Gatsby 1.x cycle.
+
+
+  if (setHtmlAttributes) {
+    setHtmlAttributes(helmet.htmlAttributes.toComponent());
+  }
+
+  if (setBodyAttributes) {
+    setBodyAttributes(helmet.bodyAttributes.toComponent());
+  }
+
+  setHeadComponents([helmet.title.toComponent(), helmet.link.toComponent(), helmet.meta.toComponent(), helmet.noscript.toComponent(), helmet.script.toComponent(), helmet.style.toComponent(), helmet.base.toComponent()]);
+};
+
+exports.onRenderBody = onRenderBody;
 
 /***/ }),
 
@@ -35964,6 +35914,17 @@ module.exports = __WEBPACK_EXTERNAL_MODULE_react__;
 /***/ (function(module, exports) {
 
 module.exports = __WEBPACK_EXTERNAL_MODULE_react_dom_server__;
+
+/***/ }),
+
+/***/ "react-helmet":
+/*!*******************************!*\
+  !*** external "react-helmet" ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE_react_helmet__;
 
 /***/ }),
 

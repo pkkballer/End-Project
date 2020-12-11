@@ -2,14 +2,14 @@ module.exports = {
   siteMetadata: {
     title: "HelpForDog",
     description:
-      "Helpallthedog",
+      "HelpAllDog",
     author: "Phansaphong Saisuwan",
-    data: {
-      name: "Bon",
-      age: 26,
-    },
+    twitterUser: "@_helpfordog",
+    image:'/defaultBcg.jpeg',
+    siteUrl:'https://helpfordog.netlify.app'
   },
   plugins: [
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
