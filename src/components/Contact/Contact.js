@@ -4,7 +4,7 @@ import styles from "../../css/contact.module.css"
 const Contact = () => {
   return (
     <section className={styles.contact}>
-      <Title title="contact" subtitle="us" />
+      <Title title="ติดต่อ" subtitle="เรา" />
       <div className={styles.center}>
         <form
           action="https://formspree.io/xnqpajvl"

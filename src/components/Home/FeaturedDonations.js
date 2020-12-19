@@ -35,14 +35,14 @@ const FeaturedDonations = () => {
 
   return (
     <section className={styles.donations}>
-      <Title title="featured" subtitle="donations" />
+      <Title title="สถานที่รับบริจาค" subtitle="โลหิต" />
       <div className={styles.center}>
         {donations.map(({ node }) => {
           return <Donation key={node.contentful_id} donation={node} />
         })}
       </div>
       <AniLink fade to="/donations" className="btn-primary">
-        all donations
+        บริจาคโลหิต
       </AniLink>
     </section>
   )

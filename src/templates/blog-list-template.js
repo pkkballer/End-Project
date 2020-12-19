@@ -22,7 +22,7 @@ const Blog = (props) => {
     <Layout>
       <SEO title="Blogs" />
       <section className={styles.blog}>
-        <Title title="latest" subtitle="posts" />
+        <Title title="ข่าวสาร" subtitle="HELPFORDOG" />
         <div className={styles.center}>
           {data.posts.edges.map(({ node }) => {
             return <BlogCard key={node.id} blog={node} />

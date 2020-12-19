@@ -19,7 +19,7 @@ export default class DonationList extends Component {
   render() {
     return (
       <section className={styles.donations}>
-        <Title title="our" subtitle="donations" />
+        <Title title="สถานที่รับบริจาค" subtitle="โลหิต" />
         <div className={styles.center}>
           {this.state.sortedDonations.map(({ node }) => {
             return <Donation key={node.contentful_id} donation={node} />

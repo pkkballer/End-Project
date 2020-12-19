@@ -21,7 +21,7 @@ const About = () => {
 
   return (
     <section className={styles.about}>
-      <Title title="about" subtitle="us" />
+      <Title title="เกี่ยวกับ" subtitle="เว็บไซด์" />
       <div className={styles.aboutCenter}>
         <article className={styles.aboutImg}>
           <div className={styles.imgContainer}>
@@ -33,18 +33,13 @@ const About = () => {
           </div>
         </article>
         <article className={styles.aboutInfo}>
-          <h4>explore the difference</h4>
+          <h4>HELPFORDOG</h4>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
-            doloribus enim necessitatibus?
+          เว็บไซด์สำหรับเผยแพร่ข้อมูลข่าวสารที่เกี่ยวข้องกับสุนัข
           </p>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nulla
-            doloribus enim necessitatibus?
+         ข้อมูลสถานที่สำหรับการบริจาคโลหิตสุนัข ข่าวสารและความรู้ในการดูแลสุนัข
           </p>
-          <button type="button" className="btn-primary">
-            read more
-          </button>
         </article>
       </div>
     </section>

@@ -9,7 +9,7 @@ export default class donation extends Component {
   render() {
     return (
       <Layout>
-        <SEO title="Donation" />
+        <SEO title="บริจาคโลหิต" />
         <StyledHero img={this.props.data.defaultBcg.childImageSharp.fluid} />
         <Donations />
       </Layout>

@@ -14,11 +14,11 @@ export default ({ data }) => (
     <SEO title="หน้าแรก"/>
     <StyledHero home="true" img={data.defaultBcg.childImageSharp.fluid}>
       <Banner
-        title="continue exploring"
-        info=" Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, officiis."
+        title="HELPFORDOG"
+        info="เว็บไซด์สำหรับเผยแพร่ข้อมูลข่าวสารที่เกี่ยวข้องกับสุนัข"
       >
         <AniLink fade to="/donations" className="btn-white">
-          explore tours
+        ไปช่วยเหลือสุนัขกัน
         </AniLink>
       </Banner>
     </StyledHero>

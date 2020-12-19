@@ -5,11 +5,11 @@ export default [
   },
   {
     path: "/donations",
-    text: "บริจาคเลือด",
+    text: "บริจาคโลหิต",
   },
   {
     path: "/blog",
-    text: "ข่าว",
+    text: "ข่าวเด่น",
   },
   {
     path: "/blogs",
